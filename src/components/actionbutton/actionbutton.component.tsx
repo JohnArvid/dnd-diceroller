@@ -1,10 +1,15 @@
 import './actionbutton.styles.css';
 
-export default function Actionbutton({action, text}) {
+interface buttonProps {
+  action: React.MouseEventHandler;
+  text: string;
+}
+
+export default function Actionbutton(buttonProps: buttonProps) {
   return (
     <button 
     className="actionButton" 
-    onClick={action}>
-      {text}
+    onClick={buttonProps.action}>
+      {buttonProps.text}
     </button>)
 }
