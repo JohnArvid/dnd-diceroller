@@ -12,6 +12,7 @@ function App() {
     </header>
     <p>{count}</p>
     <button onClick={() => setCount(count + 1)}></button>
+    {/* <DiceRoller /> */}
     </>
   )
 }
