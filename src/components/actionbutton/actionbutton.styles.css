@@ -1,4 +1,4 @@
-import './actionbutton.styles.css';
+import './dice.style.css';
 
 export default function Actionbutton({action, text}) {
   return (
