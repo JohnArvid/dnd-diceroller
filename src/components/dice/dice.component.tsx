@@ -1,16 +1,24 @@
+import React from 'react';
 import './dice.style.css';
 
-interface diceProps {
+interface DiceProps {
   diceType: string;
   incrementDice: React.MouseEventHandler;
   decrementDice: React.MouseEventHandler;
 }
 
-export default function Dice(diceProps: diceProps) {
+const Dice: React.FC<DiceProps> = ({
+  diceType,
+  incrementDice,
+  decrementDice,
+}) => {
   return (
     <>
-    <button onClick={diceProps.decrementDice}>-</button>
-    <span>{diceProps.diceType}</span>
-    <button onClick={diceProps.incrementDice}>+</button>
-    </>)
-}
+      <button onClick={decrementDice}>-</button>
+      <span>{diceType}</span>
+      <button onClick={incrementDice}>+</button>
+    </>
+  );
+};
+
+export default Dice;
