@@ -1,5 +1,5 @@
 import React from 'react';
-import './dice.style.css';
+import './dice.styles.css';
 
 interface DiceProps {
   diceType: string;
