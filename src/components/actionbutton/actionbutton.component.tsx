@@ -1,15 +1,17 @@
+import React from 'react';
 import './actionbutton.styles.css';
 
-interface buttonProps {
+interface ButtonProps {
   action: React.MouseEventHandler;
   text: string;
 }
 
-export default function Actionbutton(buttonProps: buttonProps) {
+const Actionbutton: React.FC<ButtonProps> = ({ action, text }) => {
   return (
-    <button 
-    className="actionButton" 
-    onClick={buttonProps.action}>
-      {buttonProps.text}
-    </button>)
-}
+    <button className="actionButton" onClick={action}>
+      {text}
+    </button>
+  );
+};
+
+export default Actionbutton;
