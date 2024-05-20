@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import DiceRoller from './components/diceroller/diceroller.component'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,7 +13,7 @@ function App() {
     </header>
     <p>{count}</p>
     <button onClick={() => setCount(count + 1)}></button>
-    {/* <DiceRoller /> */}
+    <DiceRoller />
     </>
   )
 }
