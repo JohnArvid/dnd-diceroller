@@ -1,6 +1,23 @@
-# SPA for rolling dice DnD stylee. Made with React, vite and TypeScript. 
+# SPA for rolling dice DnD stylee. Made with React, Vite and TypeScript. 
 
+### Components:
+- Diceroller
+  - Results
+    - ~~Rollresults~~
+    - ~~Rollinfo~~
+  - ~~Dicepicker~~
+    - ~~Dice~~
+  - Rollpicker
+    - Roll
+  - ~~Actionbutton (Save roll)~~ 
+  - ~~ActionButton (Roll dice)~~
 
+<br>
+<hr>
+<br>
+
+_Template README_ 
+    
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
