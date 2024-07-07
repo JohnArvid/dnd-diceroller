@@ -1,10 +1,6 @@
 import React from 'react';
 import './actionbutton.styles.css';
-
-interface ButtonProps {
-  action: React.MouseEventHandler;
-  text: string;
-}
+import { ButtonProps } from '../../interfaces/interfaces';
 
 const Actionbutton: React.FC<ButtonProps> = ({ action, text }) => {
   return (
