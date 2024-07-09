@@ -1,16 +1,9 @@
 # SPA for rolling dice DnD stylee. Made with React, Vite and TypeScript. 
 
-### Components:
-- Diceroller
-  - Results
-    - ~~Rollresults~~
-    - ~~Rollinfo~~
-  - ~~Dicepicker~~
-    - ~~Dice~~
-  - Rollpicker
-    - Roll
-  - ~~Actionbutton (Save roll)~~ 
-  - ~~ActionButton (Roll dice)~~
+### Notes to self: 
+- Save stuff in [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API).
+
+- Check out [how to work with localStorage in useEffect hooks](https://egghead.io/lessons/react-manage-side-effects-in-a-react-component-with-the-useeffect-hook).
 
 <br>
 <hr>
