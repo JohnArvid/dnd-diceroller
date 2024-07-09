@@ -1,11 +1,6 @@
 import React from 'react';
 import './dice.styles.css';
-
-interface DiceProps {
-  diceType: string;
-  incrementDice: React.MouseEventHandler;
-  decrementDice: React.MouseEventHandler;
-}
+import { DiceProps } from '../../interfaces/interfaces';
 
 const Dice: React.FC<DiceProps> = ({
   diceType,

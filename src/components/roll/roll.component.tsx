@@ -1,9 +1,7 @@
 import React from 'react';
 import './roll.styles.css';
 
-interface RollProps {
-  rollName: string;
-}
+import { RollProps } from '../../interfaces/interfaces';
 
 const Roll: React.FC<RollProps> = ({ rollName }) => {
   return <span>{rollName}</span>;

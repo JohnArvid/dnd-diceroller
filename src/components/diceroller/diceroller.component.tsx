@@ -6,7 +6,8 @@ import DicePicker from '../dicepicker/dicepicker.component';
 import RollPicker from '../rollpicker/rollpicker.component';
 import Actionbutton from '../actionbutton/actionbutton.component';
 
-interface DicerollerProps {}
+import { DicerollerProps } from '../../interfaces/interfaces';
+
 
 const Diceroller: React.FC<DicerollerProps> = ({}) => {
   return (
