@@ -14,3 +14,20 @@ export interface ButtonProps {
   action: React.MouseEventHandler;
   text: string;
 }
+
+export interface DiceProps {
+  diceType: string;
+  incrementDice: React.MouseEventHandler;
+  decrementDice: React.MouseEventHandler;
+}
+
+export interface DicerollerProps {}
+
+export interface ResultsProps {
+  result: string;
+  rollInfo: string;
+}
+
+export interface RollProps {
+  rollName: string;
+}

@@ -4,10 +4,8 @@ import './results.styles.css';
 import Rollinfo from '../rollinfo/rollinfo.component';
 import Rollresult from '../rollresult/rollresult.component';
 
-interface ResultsProps {
-  result: string;
-  rollInfo: string;
-}
+import { ResultsProps } from '../../interfaces/interfaces';
+
 
 const Results: React.FC<ResultsProps> = ({ result, rollInfo }) => {
   return (
