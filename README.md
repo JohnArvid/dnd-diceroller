@@ -5,6 +5,10 @@
 
 - Check out [how to work with localStorage in useEffect hooks](https://egghead.io/lessons/react-manage-side-effects-in-a-react-component-with-the-useeffect-hook).
 
+### When in doubt, refer to
+- [React docs](https://react.dev/)
+- [TypeScript docs](https://www.typescriptlang.org/docs/)
+
 <br>
 <hr>
 <br>
