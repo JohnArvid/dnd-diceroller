@@ -1,13 +1,14 @@
-export interface DiceType {
-// Shióuld be a union type of all possible dicetypes as strings
-// e.g 'd20' | 'd12' | 'd8' | and so on
-}
+export type DiceType = 'd20' | 'd12' | 'd10' | 'd8' | 'd6'| 'd4';
+// Shióuld be a literal type of all possible dicetypes as strings
+// e.g  and so on
 
-export interface Roll {
+
+export interface RollProps {
   rollId: number,
   rollName: string,
-  dice: [{ qnt: number, diceType: DiceType }],
+  dice: { qnt: number, diceType: DiceType }[],
   modifier: number,
+  rollMethod: () => number;
 }
 
 export interface ButtonProps {
@@ -28,6 +29,6 @@ export interface ResultsProps {
   rollInfo: string;
 }
 
-export interface RollProps {
-  rollName: string;
+export interface RollPickerProps {
+  rolls: RollProps[];
 }
