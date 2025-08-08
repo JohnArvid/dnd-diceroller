@@ -2,16 +2,15 @@ import React from 'react';
 import './dicepicker.styles.css';
 
 import Dice from '../dice/dice.component'
+import Actionbutton from '../actionbutton/actionbutton.component';
 
 interface DicePickerProps {
 
 }
 
-const DicePicker: React.FC<DicePickerProps> = ({
-//props
-}) => {
+const DicePicker: React.FC<DicePickerProps> = () => {
   return (
-    <>
+    <div className='dice-picker'>
      <Dice 
       diceType='d20'
       incrementDice={(e)=>(console.log(e.target, ' incremented'))}
@@ -22,7 +21,10 @@ const DicePicker: React.FC<DicePickerProps> = ({
       incrementDice={(e)=>(console.log(e.target, ' incremented'))}
       decrementDice={(e)=>(console.log(e.target, ' decremented'))}
      />
-    </>
+      <Actionbutton 
+      action={() => console.log('Roll saved')}
+      text = {'Save roll'} />
+    </div>
   );
 };
 

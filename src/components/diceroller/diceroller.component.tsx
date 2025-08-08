@@ -4,7 +4,6 @@ import './diceroller.styles.css';
 import Results from '../results/results.component';
 import DicePicker from '../dicepicker/dicepicker.component';
 import RollPicker from '../rollpicker/rollpicker.component';
-import Actionbutton from '../actionbutton/actionbutton.component';
 
 import { DicerollerProps, RollProps } from '../../interfaces/interfaces';
 import rollDice from '../../utilities/rolldice';
@@ -60,15 +59,11 @@ const Diceroller: React.FC<DicerollerProps> = ({}) => {
         result= {'result'}
         rollInfo= {'rollInfo'}
         />
+      <div className='pickers'>
       <DicePicker />
       <RollPicker 
         rolls = {presetRolls}/>
-      <Actionbutton 
-      action={() => console.log('Roll saved')}
-      text = {'Save roll'} />
-      <Actionbutton 
-      action={() => console.log('Dice rolled')}
-      text = {'Roll dice'} />
+      </div>
     </>
   );
 };

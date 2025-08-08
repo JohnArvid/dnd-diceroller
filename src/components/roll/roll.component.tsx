@@ -5,9 +5,9 @@ import { RollProps } from '../../interfaces/interfaces';
 
 const Roll: React.FC<RollProps> = ( roll ) => {
   return (
-  <li>
-    <span>{roll.rollName}</span>
-    </li>);
+  <option className='roll'>
+    <label>{roll.rollName}</label>
+    </option>);
 };
 
 export default Roll;

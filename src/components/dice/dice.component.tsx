@@ -8,11 +8,11 @@ const Dice: React.FC<DiceProps> = ({
   decrementDice,
 }) => {
   return (
-    <>
+    <div className='dice'>
       <button onClick={decrementDice}>-</button>
       <span>{diceType}</span>
       <button onClick={incrementDice}>+</button>
-    </>
+    </div>
   );
 };
 
