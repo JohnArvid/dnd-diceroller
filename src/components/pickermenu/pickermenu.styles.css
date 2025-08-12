@@ -1,0 +1,10 @@
+.roll-picker {
+  display: flex;
+  flex-direction: column;
+}
+
+select {
+  margin: 1em auto;
+  font-family: inherit;
+  font-size: inherit;
+}
