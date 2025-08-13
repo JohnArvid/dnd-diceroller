@@ -29,8 +29,12 @@ export const presetRolls: RollProps[] = [
     rollName: 'Disdvantage',
     dice: [{ qnt: 2, diceType: 'd20' }],
     modifier: 0,
-    rollMethod: function():number {
-      return 2
+    rollMethod() {
+      let rolls = [];
+      for (let i=0; i++; this.dice[0].qnt){
+        rolls.push(rollDice(this.dice[0].diceType))
+      }
+      return Math.min(...rolls)
     }
   },
   { rollId: 3,
@@ -38,7 +42,15 @@ export const presetRolls: RollProps[] = [
     dice: [{qnt: 2, diceType: 'd20'}],
     modifier: 0,
     rollMethod() {
-      return 2
-    }
+      let rolls = [];
+      for (let i=0; i++; this.dice[0].qnt){
+        rolls.push(rollDice(this.dice[0].diceType))
+      }
+      if (20 - Math.max(...rolls) > Math.min(...rolls) - 1) {
+          return Math.max(...rolls)
+        } else {
+          return Math.min(...rolls)
+        } ;
+      }
   }
 ];
