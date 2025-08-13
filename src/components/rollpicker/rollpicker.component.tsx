@@ -6,20 +6,6 @@ import { RollPickerProps, RollProps } from '../../interfaces/interfaces';
 import Roll from '../roll/roll.component';
 
 
-// use local state to keep track of picked roll 
-// the actual picker-menu should be a separate component
-// state should live in wrapper component that looks like this:
-/**
- * 
- * <RollPicker rolls={defaultRolls}/>
- * <RollPicker rolls={customRolls } //from localStorage />
- * <Actionbutton 
- *  action={state.pickedRoll.rollMethod}
- *  text={state.pickedRoll.rollName}
- * />
- * 
- */
-
 const RollPicker: React.FC<RollPickerProps> = ({rolls}) => {
   return (
     <div className='roll-picker'>
