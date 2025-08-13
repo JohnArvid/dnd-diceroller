@@ -1,7 +1,5 @@
 import React from 'react';
 import './rollpicker.styles.css';
-import Actionbutton from '../actionbutton/actionbutton.component';
-
 
 import { RollPickerProps, RollProps } from '../../interfaces/interfaces';
 
