@@ -23,7 +23,7 @@ import Roll from '../roll/roll.component';
 const RollPicker: React.FC<RollPickerProps> = ({rolls}) => {
   return (
     <div className='roll-picker'>
-      <select id='default-rolls'>
+      <select>
       {rolls.map((roll:RollProps)=> (
         <Roll 
         key = {roll.rollId} 
