@@ -12,7 +12,7 @@ const PickerMenu: React.FC<PickerMenuProps> = (props) => {
     <RollPicker pickedRoll={props.pickedRoll} setPickedRoll={props.setPickedRoll} rolls={presetRolls}/>
     <Actionbutton 
     // Update based on picked roll, default is standard
-      action={() => console.log(props.pickedRoll.rollMethod())}
+      action={() => props.setResult(props.pickedRoll.rollMethod())}
       // Update based on picked roll 
       text = {"Roll " + props.pickedRoll.rollName} />
     </div>
