@@ -16,7 +16,7 @@ const Diceroller: React.FC<DicerollerProps> = ({}) => {
     <>
       <Results 
         result= {result}
-        rollInfo= {pickedRoll.rollName}
+        rollInfo= {pickedRoll}
         />
       <div className='pickers'>
       <DicePicker />

@@ -26,7 +26,7 @@ export interface DicerollerProps {}
 
 export interface ResultsProps {
   result: string;
-  rollInfo: string;
+  rollInfo: RollProps;
 }
 
 export interface RollPickerProps {

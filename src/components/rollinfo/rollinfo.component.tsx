@@ -1,13 +1,10 @@
 import React from 'react';
 import './rollinfo.styles.css';
+import { ResultsProps } from '../../interfaces/interfaces';
 
-// Need to define an interface for roll that has all the properties
-interface RollInfoProps {
-  rollInfo: string;
-}
 
-const Rollinfo: React.FC<RollInfoProps> = ({ rollInfo }) => {
-  return <p>Roll name: {rollInfo}</p>;
+const Rollinfo: React.FC<ResultsProps> = ({ rollInfo }) => {
+  return <p>Roll name: {rollInfo.rollName}</p>;
 };
 
 export default Rollinfo;

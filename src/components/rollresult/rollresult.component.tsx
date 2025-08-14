@@ -1,11 +1,9 @@
 import React from 'react';
 import './rollresult.styles.css';
+import { ResultsProps } from '../../interfaces/interfaces';
 
-interface RollResultProps {
-  result: string;
-}
 
-const Rollresult: React.FC<RollResultProps> = ({ result }) => {
+const Rollresult: React.FC<ResultsProps> = ({ result }) => {
   return <h3>Result: {result}</h3>;
 };
 
