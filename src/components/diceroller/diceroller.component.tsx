@@ -11,15 +11,16 @@ import { DicerollerProps } from '../../interfaces/interfaces';
 
 const Diceroller: React.FC<DicerollerProps> = ({}) => {
   let [pickedRoll, setPickedRoll] = useState(presetRolls[0]);
+  let [result, setResult] = useState('');
   return (
     <>
       <Results 
-        result= {'result'}
-        rollInfo= {'rollInfo'}
+        result= {result}
+        rollInfo= {pickedRoll.rollName}
         />
       <div className='pickers'>
       <DicePicker />
-      <PickerMenu pickedRoll={pickedRoll} setPickedRoll={setPickedRoll}/>
+      <PickerMenu pickedRoll={pickedRoll} setPickedRoll={setPickedRoll} setResult={setResult}/>
       </div>
     </>
   );
