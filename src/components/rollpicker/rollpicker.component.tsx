@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import './rollpicker.styles.css';
 
 import { RollPickerProps, RollProps } from '../../interfaces/interfaces';
 
 import Roll from '../roll/roll.component';
+import { presetRolls } from '../../utilities/presetRolls';
 
 
-const RollPicker: React.FC<RollPickerProps> = ({rolls}) => {
+const RollPicker: React.FC<RollPickerProps> = ({rolls, setPickedRoll, pickedRoll}) => {
+  function handleSelectChange(e:SyntheticEvent) {
+    setPickedRoll(presetRolls.find((roll)=> {
+      const select = e.target as HTMLSelectElement;
+      return roll.rollName === select.value}))
+    
+  }
+  
   return (
     <div className='roll-picker'>
-      <select>
+      <select onChange={handleSelectChange}>
       {rolls.map((roll:RollProps)=> (
         <Roll 
         key = {roll.rollId} 
