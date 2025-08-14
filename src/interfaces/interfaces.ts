@@ -30,5 +30,12 @@ export interface ResultsProps {
 }
 
 export interface RollPickerProps {
+  pickedRoll: RollProps;
+  setPickedRoll: Function;
   rolls: RollProps[];
+}
+
+export interface PickerMenuProps {
+  pickedRoll: RollProps;
+  setPickedRoll:Function;
 }
