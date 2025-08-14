@@ -7,7 +7,7 @@ interface RollInfoProps {
 }
 
 const Rollinfo: React.FC<RollInfoProps> = ({ rollInfo }) => {
-  return <p>{rollInfo}</p>;
+  return <p>Roll name: {rollInfo}</p>;
 };
 
 export default Rollinfo;
