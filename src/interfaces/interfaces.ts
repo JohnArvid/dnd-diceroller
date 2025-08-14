@@ -38,4 +38,5 @@ export interface RollPickerProps {
 export interface PickerMenuProps {
   pickedRoll: RollProps;
   setPickedRoll:Function;
+  setResult: Function;
 }
