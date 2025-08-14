@@ -6,7 +6,7 @@ interface RollResultProps {
 }
 
 const Rollresult: React.FC<RollResultProps> = ({ result }) => {
-  return <h3>{result}</h3>;
+  return <h3>Result: {result}</h3>;
 };
 
 export default Rollresult;
