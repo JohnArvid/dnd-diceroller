@@ -7,7 +7,7 @@ import Roll from '../roll/roll.component';
 import { presetRolls } from '../../utilities/presetRolls';
 
 
-const RollPicker: React.FC<RollPickerProps> = ({rolls, setPickedRoll, pickedRoll}) => {
+const RollPicker: React.FC<RollPickerProps> = ({rolls, setPickedRoll}) => {
   function handleSelectChange(e:SyntheticEvent) {
     setPickedRoll(presetRolls.find((roll)=> {
       const select = e.target as HTMLSelectElement;
