@@ -1,6 +1,6 @@
 import { DiceType } from "../interfaces/interfaces";
 
-export default function rollDice(dice:DiceType) {
+export default function rollDice(dice:DiceType):number {
   let max = +dice.slice(1);
   return (Math.ceil(Math.random() * max))
 }
