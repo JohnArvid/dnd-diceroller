@@ -1,4 +1,4 @@
-export type DiceType = 'd20' | 'd12' | 'd10' | 'd8' | 'd6'| 'd4';
+export type DiceType = 'd20' | 'd12' | 'd10' | 'd8' | 'd6'| 'd4' | undefined;
 // Shióuld be a literal type of all possible dicetypes as strings
 // e.g  and so on
 
