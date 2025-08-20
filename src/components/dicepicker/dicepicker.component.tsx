@@ -1,9 +1,10 @@
-import React, { SyntheticEvent } from 'react';
+import React, { ChangeEvent, SyntheticEvent, useState } from 'react';
 import './dicepicker.styles.css';
 
 import Dice from '../dice/dice.component'
 import Actionbutton from '../actionbutton/actionbutton.component';
-
+import { DiceType, RollProps } from '../../interfaces/interfaces';
+import QuickRoll from '../../utilities/createQuickRoll';
 const diceTypes:string[] = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20']
 
 /**
@@ -24,28 +25,54 @@ const diceTypes:string[] = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20']
 
 const DicePicker: React.FC = () => {
 
+  const [quickRoll, setQuickRoll] = useState<RollProps | null> (null)
+
+  const clearQuickRoll = () => setQuickRoll(null);
+  const createQuickRoll = (diceType:DiceType) => setQuickRoll(
+    new QuickRoll(diceType)
+  )
+
   function incrementDice(e:SyntheticEvent) {
-    console.log(e)
+    let target = e.target as HTMLButtonElement
+    let dicetype = target.parentElement?.dataset.dicetype
     // kolla om det finns ett osparat roll
-    // om inte skapa det, annars
-    // lägg till tärning i quickRoll
+    if (quickRoll) {
+      // lägg till tärning i quickRoll
+      setQuickRoll({
+        ...quickRoll
+        // uppdatera med hur fan jag ska kolla om det redan finns tärning av denna typ 
+        // och i så fall öka på
+        // annars skapa ett nytt item i dice arrayen
+      })
+    } else {
+      // om quickRoll inte finns skapa det
+      createQuickRoll(dicetype as DiceType)
+    }
   }
 
   function decrementDice(e:SyntheticEvent) {
     console.log(e)
     // kolla om det finns ett osparat roll
-    // om inte, gör inget, annars
-    // kolla om det finns någon tärning av typen som decrementas, i så fall
-    // decrementa och kolla om det finns några tärningar kvar i roll, i så fall
-    // gör inget mer, annars
-    // ta bort quickRoll
+    if (quickRoll) {
+      // kolla om det finns någon tärning av typen som decrementas, i så fall
+      // decrementa och kolla om det finns några tärningar kvar i roll, i så fall
+      // gör inget mer, annars
+      // ta bort quickRoll
+    } else {
+      console.log("No dice to decrement")
+    }    
   }
 
-  function handleModifierChange(e:SyntheticEvent) {
+  function handleModifierChange(e:ChangeEvent<HTMLInputElement>) {
     console.log(e)
     // kolla om det finns ett osparat roll, 
-    // om inte, gör inget, annars
-    // uppdatera modifier i quickRoll
+    if (quickRoll) {  
+      // uppdatera modifier i quickRoll
+      setQuickRoll({
+        ...quickRoll,
+        modifier: +e.target.value
+      })
+    }
   }
 
   return (
@@ -68,7 +95,7 @@ const DicePicker: React.FC = () => {
       action={() => console.log('Roll saved')}
       text = {'Save roll'} />
       <Actionbutton 
-      action={() => console.log('Roll cleared')}
+      action={clearQuickRoll}
       text = {'Clear roll'} />
     </div>
 
