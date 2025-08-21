@@ -34,35 +34,65 @@ const DicePicker: React.FC<PickerMenuProps> = () => {
     new QuickRoll(diceType)
   )
 
-  function incrementDice(e:SyntheticEvent) {
-    let target = e.target as HTMLButtonElement
-    let dicetype = target.parentElement?.dataset.dicetype
-    // kolla om det finns ett osparat roll
+  function incrementDice(e: SyntheticEvent) {
+    const target = e.target as HTMLButtonElement;
+    const dicetype = target.parentElement?.dataset.dicetype as DiceType;
+
     if (quickRoll) {
-      // lägg till tärning i quickRoll
+      // Kolla om typen redan finns
+      const exists = quickRoll.dice.some(d => d.diceType === dicetype);
+
+      let updatedDice;
+      if (exists) {
+        // öka qnt på rätt tärning
+        updatedDice = quickRoll.dice.map(d =>
+          d.diceType === dicetype ? { ...d, qnt: d.qnt + 1 } : d
+        );
+      } else {
+        // lägg till ny tärning
+        updatedDice = [...quickRoll.dice, { diceType: dicetype, qnt: 1 }];
+      }
+
       setQuickRoll({
-        ...quickRoll
-        // uppdatera med hur fan jag ska kolla om det redan finns tärning av denna typ 
-        // och i så fall öka på
-        // annars skapa ett nytt item i dice arrayen
-      })
-    } else {
-      // om quickRoll inte finns skapa det
-      createAndSetQuickRoll(dicetype as DiceType);
+        ...quickRoll,
+        dice: updatedDice,
+      });
+      } else {
+      // om quickRoll inte finns, skapa en ny
+        createAndSetQuickRoll(dicetype);
     }
   }
 
-  function decrementDice(e:SyntheticEvent) {
-    console.log(e)
-    // kolla om det finns ett osparat roll
-    if (quickRoll) {
-      // kolla om det finns någon tärning av typen som decrementas, i så fall
-      // decrementa och kolla om det finns några tärningar kvar i roll, i så fall
-      // gör inget mer, annars
-      // ta bort quickRoll
+  function decrementDice(e: SyntheticEvent) {
+    let target = e.target as HTMLButtonElement;
+    let dicetype = target.parentElement?.dataset.dicetype as DiceType;
+
+    if (!quickRoll) {
+      console.log("No dice to decrement");
+      return;
+    }
+
+    // Leta efter rätt tärning
+    const updatedDice = quickRoll.dice
+      .map(diceObj => {
+        if (diceObj.diceType === dicetype) {
+          return { ...diceObj, qnt: diceObj.qnt - 1 };
+        }
+        return diceObj;
+      })
+      // filtrera bort de som har 0 kvar
+      .filter(diceObj => diceObj.qnt > 0);
+
+    if (updatedDice.length === 0) {
+      // Inga tärningar kvar → nollställ quickRoll
+      setQuickRoll(null);
     } else {
-      console.log("No dice to decrement")
-    }    
+      // Uppdatera quickRoll med nya arrayen
+      setQuickRoll({
+        ...quickRoll,
+        dice: updatedDice,
+      });
+    }
   }
 
   function handleModifierChange(e:ChangeEvent<HTMLInputElement>) {
