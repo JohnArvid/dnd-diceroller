@@ -8,7 +8,7 @@ const Dice: React.FC<DiceProps> = ({
   decrementDice,
 }) => {
   return (
-    <div className='dice' data-diceType={diceType}>
+    <div className='dice' data-dicetype={diceType}>
       <button onClick={decrementDice}>-</button>
       <span>{diceType}</span>
       <button onClick={incrementDice}>+</button>
