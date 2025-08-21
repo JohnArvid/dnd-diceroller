@@ -3,7 +3,7 @@ import './dicepicker.styles.css';
 
 import Dice from '../dice/dice.component'
 import Actionbutton from '../actionbutton/actionbutton.component';
-import { DiceType, RollProps } from '../../interfaces/interfaces';
+import { DiceType, RollProps, PickerMenuProps } from '../../interfaces/interfaces';
 import QuickRoll from '../../utilities/createQuickRoll';
 const diceTypes:string[] = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20']
 
@@ -23,12 +23,14 @@ const diceTypes:string[] = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20']
  * 
  */
 
-const DicePicker: React.FC = () => {
+const DicePicker: React.FC<PickerMenuProps> = () => {
 
   const [quickRoll, setQuickRoll] = useState<RollProps | null> (null)
 
-  const clearQuickRoll = () => setQuickRoll(null);
-  const createQuickRoll = (diceType:DiceType) => setQuickRoll(
+  const clearQuickRoll = () => {
+    setQuickRoll(null)
+  };
+  const createAndSetQuickRoll = (diceType:DiceType) => setQuickRoll(
     new QuickRoll(diceType)
   )
 
@@ -46,7 +48,7 @@ const DicePicker: React.FC = () => {
       })
     } else {
       // om quickRoll inte finns skapa det
-      createQuickRoll(dicetype as DiceType)
+      createAndSetQuickRoll(dicetype as DiceType);
     }
   }
 
@@ -64,10 +66,7 @@ const DicePicker: React.FC = () => {
   }
 
   function handleModifierChange(e:ChangeEvent<HTMLInputElement>) {
-    console.log(e)
-    // kolla om det finns ett osparat roll, 
     if (quickRoll) {  
-      // uppdatera modifier i quickRoll
       setQuickRoll({
         ...quickRoll,
         modifier: +e.target.value
@@ -88,7 +87,7 @@ const DicePicker: React.FC = () => {
       })}
       <div>
         <label htmlFor="modifier">Modifier:</label>
-        <input id='modifier' type='text' size={4} onChange={handleModifierChange}></input>
+        <input id='modifier' type='text' size={4} onChange={handleModifierChange} value={quickRoll?.modifier||""}/>
       </div>
         
       <Actionbutton 
